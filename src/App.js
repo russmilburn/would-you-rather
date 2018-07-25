@@ -6,8 +6,8 @@ import {connect} from 'react-redux';
 import './App.css';
 
 import AddQuestion from './components/AddQuestion'
-import QuestionPage from './components/QuestionPage'
 import Leaderboard from './components/Leaderboard'
+import QuestionCardView from "./components/question/QuestionCardView";
 import Home from "./components/Home";
 import Login from "./components/Login";
 
@@ -15,7 +15,7 @@ import {handleInitialData} from "./actions/appInit";
 
 class App extends Component {
 
-  componentDidMount(){
+  componentDidMount() {
     this.props.dispatch(handleInitialData());
   }
 
@@ -23,19 +23,18 @@ class App extends Component {
     return (
       <Router>
         <Fragment>
-            <LoadingBar/>
-
-        <div>
-          { this.props.currentUser === true
-            ? <Login/>
-            : <Home/>
-          }
-
-
-          <Route path='/add' component={AddQuestion}/>
-          <Route path='/question/:question_id' component={QuestionPage}/>
-          <Route path='/leaderboard' component={Leaderboard}/>
-        </div>
+          <LoadingBar/>
+          <div>
+            {this.props.currentUser === true
+              ? <Login/>
+              : <div>
+                <Route exact path='/' component={Home}/>
+                <Route exact path='/add' component={AddQuestion}/>
+                <Route exact path='/question/:question_id' component={QuestionCardView}/>
+                <Route exact path='/leaderboard' component={Leaderboard}/>
+              </div>
+            }
+          </div>
         </Fragment>
       </Router>
     );

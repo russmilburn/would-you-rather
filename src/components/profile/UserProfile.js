@@ -14,7 +14,8 @@ class UserProfile extends React.Component{
     const {user} = this.props;
     return(
       <div>
-        {user.name}
+        <h2>Hello {user.name}</h2>
+        <img src={user.avatarURL} height={20} width={20}/>
         <button onClick={this.logoutUser}>Logout</button>
       </div>
     )

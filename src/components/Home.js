@@ -1,6 +1,6 @@
 import React from 'react'
-import UserProfile  from './UserProfile';
-import Question  from './Question';
+import QuestionsList  from './QuestionsList';
+import NavigationView  from './nav/NavigationView';
 
 class Home extends React.Component{
 
@@ -9,8 +9,8 @@ class Home extends React.Component{
   render(){
     return(
       <div>
-        <UserProfile/>
-        <Question/>
+        <NavigationView/>
+        <QuestionsList/>
       </div>
     )
   }
