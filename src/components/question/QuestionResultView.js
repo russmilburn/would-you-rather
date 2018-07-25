@@ -2,11 +2,7 @@ import React from 'react'
 import {connect} from 'react-redux'
 import PropTypes from "prop-types";
 
-class QuestionResult extends React.Component {
-
-  constructor(props) {
-    super(props)
-  }
+class QuestionResultView extends React.Component {
 
   render() {
     const {currentUser, question} = this.props;
@@ -39,8 +35,8 @@ function mapStateToProps({questions, currentUser}, {question_id}) {
   }
 }
 
-QuestionResult.propTypes = {
+QuestionResultView.propTypes = {
   question_id: PropTypes.string.isRequired,
 }
 
-export default connect(mapStateToProps)(QuestionResult);
+export default connect(mapStateToProps)(QuestionResultView);

@@ -1,5 +1,6 @@
 export const SET_CURRENT_USER = 'SET_CURRENT_USER';
 export const GET_ALL_USERS = 'GET_ALL_USERS';
+export const UPDATE_USER_QUESTIONS = 'UPDATE_USER_QUESTIONS';
 export const LOGOUT = 'LOGOUT';
 
 
@@ -14,6 +15,13 @@ export function getAllUsers(users) {
   return {
     type : GET_ALL_USERS,
     users: users,
+  }
+}
+
+export function updateUsersQuestions(question){
+  return {
+    type: UPDATE_USER_QUESTIONS,
+    question
   }
 }
 

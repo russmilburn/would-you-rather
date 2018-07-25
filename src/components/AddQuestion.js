@@ -1,16 +1,60 @@
 import React from 'react'
 import {connect} from 'react-redux';
+import {handleAddQuestion} from "../actions/questions";
+import {Redirect} from 'react-router-dom';
 
-class AddQuestion extends React.Component{
+class AddQuestion extends React.Component {
 
   state = {
     optionOne: '',
     optionTwo: '',
+    isDisabled: true,
+    toHome: false,
   };
 
 
-  render(){
-    return(
+  onChange = (e) => {
+    e.preventDefault();
+    const text = e.target.value;
+    const id = e.target.id;
+    this.setState(() => ({
+      [id]: text,
+    }));
+
+    this.isDisabled();
+  };
+
+  handleSubmit = (e) =>{
+    e.preventDefault();
+    const {optionOne, optionTwo} = this.state;
+    const {dispatch} = this.props;
+
+    dispatch(handleAddQuestion(optionOne, optionTwo));
+
+    this.setState((currentState) => ({
+      optionOne:'',
+      optionTwo:'',
+      isDisabled: true,
+      toHome: true,
+    }));
+  };
+
+  isDisabled() {
+    const {optionOne, optionTwo} = this.state;
+    if (optionOne !== '' && optionTwo !== ''){
+      this.setState(() => ({
+        isDisabled: false,
+      }))
+    }
+  }
+
+
+  render() {
+    const {optionOne, optionTwo, isDisabled, toHome} = this.state;
+    if (toHome === true){
+      return <Redirect to='/'/>
+    }
+    return (
       <div>
         <h2>Create New Question</h2>
 
@@ -18,21 +62,23 @@ class AddQuestion extends React.Component{
 
         <h3>Would you rather</h3>
 
-        <input type='text' placeholder='Enter option one here'/>
+        <input id='optionOne' type='text' placeholder='Enter option one here' onChange={(e) => {
+          this.onChange(e)
+        }}/>
 
         <h3>or</h3>
 
-        <input type='text' placeholder='Enter option two here'/>
+        <input id='optionTwo' type='text' placeholder='Enter option two here' onChange={(e) => {
+          this.onChange(e)
+        }}/>
 
-        <button className='viewPollBtn'>Submit</button>
+        <button className='viewPollBtn'
+                disabled={isDisabled}
+                onClick={this.handleSubmit}>Submit</button>
       </div>
     )
   }
 }
 
-function mapStateToProps({}) {
- return {
- }
-}
 
-export default connect(mapStateToProps)(AddQuestion);
+export default connect()(AddQuestion);
