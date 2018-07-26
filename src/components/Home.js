@@ -1,5 +1,5 @@
 import React from 'react'
-import QuestionsList  from './QuestionsList';
+import QuestionsList  from './QuestionsListView';
 import NavigationView  from './nav/NavigationView';
 
 class Home extends React.Component{

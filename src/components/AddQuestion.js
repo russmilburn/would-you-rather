@@ -50,7 +50,7 @@ class AddQuestion extends React.Component {
 
 
   render() {
-    const {optionOne, optionTwo, isDisabled, toHome} = this.state;
+    const {isDisabled, toHome} = this.state;
     if (toHome === true){
       return <Redirect to='/'/>
     }
