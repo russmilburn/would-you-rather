@@ -11,8 +11,6 @@
     position: relative;
     display: flex;
     margin: 15px;
-    /*width:400px;*/
-    /*height:130px;*/
 }
 
 
@@ -54,8 +52,6 @@ p{
 
 .profileDiv{
     display: flex;
-    /*width: 25%;*/
-    /*margin-right: 5px;*/
     align-items: center;
     vertical-align: middle;
 }

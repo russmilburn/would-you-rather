@@ -1,15 +1,15 @@
 import React from 'react'
 import {connect} from 'react-redux';
 
-import QuestionPreview from './question/QuestionPreview';
+import QuestionPreview from './QuestionPreview';
 // import {currentUser} from "../reducers/users";
 
 class QuestionsListView extends React.Component {
   render() {
     const {questionList} = this.props;
 
-    const unanswered = questionList.filter(q => q.isAnsweredByCurrentUser == false);
-    const answered = questionList.filter(q => q.isAnsweredByCurrentUser == true);
+    const unanswered = questionList.filter(q => q.isAnsweredByCurrentUser === false);
+    const answered = questionList.filter(q => q.isAnsweredByCurrentUser === true);
     return (
       <div>
         <h3>Unanswered</h3>
@@ -35,15 +35,6 @@ class QuestionsListView extends React.Component {
 
 function mapStateToProps({questions, users, currentUser}) {
 
-
-  const qList = Object.keys(questions).map((key) =>{
-    return questions[key];
-  });
-
-  // const userList = Object.keys(users).map((key) =>{
-  //   return users[key];
-  // });
-
   let isAnswered;
   const user = users[currentUser];
 
@@ -60,28 +51,6 @@ function mapStateToProps({questions, users, currentUser}) {
       }
     })
   };
-  //
-  // const user = users[currentUser];
-  // //
-  // let questionList = [];
-  //
-  // qList.forEach((item) => {
-  //
-  //
-  //
-  //   user.questions.forEach((questionId) => {
-  //     if (item.id === questionId) {
-  //       isAnswered = true;
-  //     }
-  //   });
-  //   let vo = {
-  //     question: item,
-  //     user: users[item.author],
-  //     isAnswered: isAnswered,
-  //   };
-  //   questionList.push(vo);
-  // });
-  //
   return data
 }
 

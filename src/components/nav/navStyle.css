@@ -1,5 +1,59 @@
 .navContainer{
-  display: flex;
+    position: relative;
+    left: calc(50% - 300px);
+    display: flex;
     align-items: center;
     justify-items: center;
+    margin-top: 10px;
+    height: 30px;
+    /*width: 600px;*/
 }
+
+.header{
+    display: block;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+p.nav {
+    position: relative;
+    display: inline-block;
+    padding: 10px;
+    margin: 10px;
+    color: #222222;
+}
+
+p.nav:hover{
+    color: #f8f8f8;
+}
+
+p.nav:hover::before{
+    content: ''; /* To generate the box */
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+    z-index: -1;
+    color: #e3e3e3;
+    background: #34987c;
+    transform: perspective(4px) rotateX(1deg);
+}
+
+p.nav.tab::before {
+    /* Tip by @krofdrakula */
+    border-radius: 10px 10px 0 0;
+}
+
+.navLine{
+
+    display: inline-block;
+    width: 100%;
+    height: 10px;
+    background-color: #34987c;
+    border: 0px;
+}
+
+
+.currentUserProfile{
+    margin-left: 100px;
+}
+

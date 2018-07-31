@@ -1,7 +1,10 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {logout} from "../../actions/users";
+import {Link} from 'react-router-dom'
+
 import './profileStyle.css';
+
 
 class UserProfile extends React.Component{
 
@@ -15,9 +18,9 @@ class UserProfile extends React.Component{
     const {user} = this.props;
     return(
       <div className='profileContainer'>
-        <h2>Hello {user.name}</h2>
+        <p className='profileTitle'>Hello {user.name}</p>
         <img src={user.avatarURL} height={20} width={20} alt={user.name}/>
-        <button onClick={this.logoutUser}>Logout</button>
+        <Link to='/' onClick={this.logoutUser}><p className='nav tab'>Logout</p></Link>
       </div>
     )
   }

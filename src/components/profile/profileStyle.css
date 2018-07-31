@@ -1,8 +1,13 @@
 .profileContainer{
     display: flex;
     align-items: center;
+    margin: 0px;
     justify-content: center;
+}
 
+.profileTitle{
+    margin: 0px 10px 0px 0px;
+    font-size: 10pt;
 }
 
 img{

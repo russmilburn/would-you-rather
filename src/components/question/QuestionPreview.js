@@ -15,7 +15,6 @@ const QuestionPreview = ({question, user}) => {
           <div className='profileDiv'>
             <img src={user.avatarURL} height={100} width={100} alt={user.name}/>
           </div>
-
           <div className='questionColumn'>
             <div className='question'>
             <h4 className='wouldYouRather'>Would you rather ...</h4>

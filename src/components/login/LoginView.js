@@ -1,9 +1,9 @@
 import React from 'react'
 import {connect} from 'react-redux'
 
-import {setCurrentUser} from "../actions/users";
+import {setCurrentUser} from "../../actions/users";
 
-class Login extends React.Component {
+class LoginView extends React.Component {
 
   onSelectUser = (e) => {
     e.preventDefault();
@@ -39,4 +39,4 @@ function mapStateToProps({users}) {
   }
 }
 
-export default connect(mapStateToProps)(Login)
+export default connect(mapStateToProps)(LoginView)

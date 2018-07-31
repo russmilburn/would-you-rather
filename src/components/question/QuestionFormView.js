@@ -1,9 +1,9 @@
 import React from 'react'
 import {connect} from 'react-redux';
-import {handleAddQuestion} from "../actions/questions";
+import {handleAddQuestion} from "../../actions/questions";
 import {Redirect} from 'react-router-dom';
 
-class AddQuestion extends React.Component {
+class QuestionFormView extends React.Component {
 
   state = {
     optionOne: '',
@@ -81,4 +81,4 @@ class AddQuestion extends React.Component {
 }
 
 
-export default connect()(AddQuestion);
+export default connect()(QuestionFormView);

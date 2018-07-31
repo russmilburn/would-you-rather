@@ -4,15 +4,22 @@ import UserProfile from '../profile/UserProfile';
 
 import './navStyle.css'
 
-class NavigationView extends React.Component{
+class NavigationView extends React.Component {
 
-  render(){
-    return(
-      <div className='navContainer'>
-        <Link to='/'>Home</Link>
-        <Link to='/add'>Add Question</Link>
-        <Link to='/leaderboard'>Leader board</Link>
-        <UserProfile/>
+  render() {
+    return (
+      <div className='header'>
+        <div className='navContainer'>
+          <div>
+            <Link to='/'><p className='nav tab'>Home</p></Link>
+            <Link to='/add'><p className='nav tab'>Add Question</p></Link>
+            <Link to='/leaderboard'><p className='nav tab'>Leader board</p></Link>
+          </div>
+          <div className='currentUserProfile'>
+            <UserProfile/>
+          </div>
+        </div>
+        <div className='navLine'/>
       </div>
     )
   }
