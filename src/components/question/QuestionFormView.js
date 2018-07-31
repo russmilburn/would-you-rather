@@ -24,7 +24,7 @@ class QuestionFormView extends React.Component {
     this.isDisabled();
   };
 
-  handleSubmit = (e) =>{
+  handleSubmit = (e) => {
     e.preventDefault();
     const {optionOne, optionTwo} = this.state;
     const {dispatch} = this.props;
@@ -32,8 +32,8 @@ class QuestionFormView extends React.Component {
     dispatch(handleAddQuestion(optionOne, optionTwo));
 
     this.setState((currentState) => ({
-      optionOne:'',
-      optionTwo:'',
+      optionOne: '',
+      optionTwo: '',
       isDisabled: true,
       toHome: true,
     }));
@@ -41,7 +41,7 @@ class QuestionFormView extends React.Component {
 
   isDisabled() {
     const {optionOne, optionTwo} = this.state;
-    if (optionOne !== '' && optionTwo !== ''){
+    if (optionOne !== '' && optionTwo !== '') {
       this.setState(() => ({
         isDisabled: false,
       }))
@@ -51,30 +51,35 @@ class QuestionFormView extends React.Component {
 
   render() {
     const {isDisabled, toHome} = this.state;
-    if (toHome === true){
+    if (toHome === true) {
       return <Redirect to='/'/>
     }
     return (
-      <div>
-        <h2>Create New Question</h2>
+      <div className='questionFormContainer'>
+        <div className='questionFormHeader'>
+          <h2 className='questionForm'>Create New Question</h2>
+        </div>
 
-        <p>Complete the question:</p>
+        <div className='questionFormContent'>
+          <p>Complete the question:</p>
 
-        <h3>Would you rather</h3>
+          <h4 className='wouldYouRather'>Would you rather...</h4>
 
-        <input id='optionOne' type='text' placeholder='Enter option one here' onChange={(e) => {
-          this.onChange(e)
-        }}/>
+          <input className='addQuestion' id='optionOne' type='text' placeholder='Enter option one here' onChange={(e) => {
+            this.onChange(e)
+          }}/>
 
-        <h3>or</h3>
+          <h4 className='qForm'>OR</h4>
 
-        <input id='optionTwo' type='text' placeholder='Enter option two here' onChange={(e) => {
-          this.onChange(e)
-        }}/>
+          <input className='addQuestion' id='optionTwo' type='text' placeholder='Enter option two here' onChange={(e) => {
+            this.onChange(e)
+          }}/>
 
-        <button className='viewPollBtn'
-                disabled={isDisabled}
-                onClick={this.handleSubmit}>Submit</button>
+          <button className='viewPollBtn'
+                  disabled={isDisabled}
+                  onClick={this.handleSubmit}>Submit
+          </button>
+        </div>
       </div>
     )
   }

@@ -43,6 +43,7 @@ p{
     text-decoration: none;
     font-size: 10pt;
     color: #34987c;
+    margin-top: 10px;
 }
 
 .viewPollBtn:hover{
@@ -71,6 +72,129 @@ p{
     margin-left: 15px;
     /*margin-right: 15px;*/
 }
+
+.questionFormContainer{
+    margin-top: 25px;
+    border: #e3e3e3 1px solid;
+    width: auto;
+    justify-content: center;
+}
+
+.questionFormHeader{
+    border-bottom: #e3e3e3 1px solid;
+}
+
+.questionFormContent{
+    padding: 10px;
+}
+
+h2.questionForm{
+    margin: 10px 50px 10px 50px;
+}
+
+input.addQuestion{
+    border: #e3e3e3 1px solid;
+    padding: 5px;
+    width: 310px;
+}
+
+h4.qForm {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    overflow: hidden;
+    text-align: center;
+}
+
+h4.qForm:before,
+h4.qForm:after {
+    background-color: #e3e3e3;
+    content: "";
+    display: inline-block;
+    height: 1px;
+    position: relative;
+    vertical-align: middle;
+    width: 50%;
+}
+
+h4.qForm:before {
+    right: 0.5em;
+    margin-left: -50%;
+}
+
+h4.qForm:after {
+    left: 0.5em;
+    margin-right: -50%;
+}
+
+.percentBarBoarder{
+    background-color: #dbdbdb;
+    /*border: #e3e3e3 1px solid;*/
+    border-radius: 5px;
+    width: 100%;
+    height: 30px;
+    margin-bottom: 10px;
+}
+
+.percentBar{
+    display: flex;
+    background-color: #34987c;
+    border-radius: 5px;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.percentNumber{
+    color: #f8f8f8;
+}
+
+.questionOption{
+    padding: 10px;
+    background-color: #f8f8f8;
+    border-radius: 5px;
+    border: #e3e3e3 1px solid;
+    margin-bottom: 10px;
+}
+
+.questionOptionSelected{
+    padding: 10px;
+    background-color: #e0fbf7;
+    border-radius: 5px;
+    border: #34987c 2px solid;
+    margin-bottom: 10px;
+}
+
+.badge:before {
+    content: "Your vote";
+    /*display: inline-block;*/
+    float: right;
+    background: #e0c152;
+    height: 26px;
+    top: 16px;
+    right: -10px;
+    width: 31px;
+    -ms-flex-align: center;
+    justify-items: center;
+    text-align: center;
+    padding-top: 5px;
+    font-size: 9px;
+    border-radius: 50%;
+    color: white;
+    margin-top: -20px;
+    margin-right: -20px;
+}
+
+p.questionResultText{
+    color: #34987c;
+    font-weight: bold;
+}
+
+p.questionResultTextSelect{
+
+}
+
+
+
 
 
 

@@ -1,0 +1,50 @@
+.contentContainer{
+    display: flex;
+    margin-top: 50px;
+    width: 100%;
+    /*align-items: center;*/
+    justify-content: center;
+}
+
+.loginContainer{
+    /*display: flex;*/
+    border: #e3e3e3 1px solid;
+    width: auto;
+    justify-content: center;
+}
+
+.loginHeaderContainer{
+    background-color: #f8f8f8;
+    border-bottom: #e3e3e3 1px solid;
+}
+
+.imageContainer{
+    display: flex;
+    justify-content: center;
+}
+
+h3.login{
+    margin: 0px;
+    padding: 10px 25px 10px 25px;
+    background-color: #f8f8f8;
+}
+
+h4.login{
+    margin: 0px;
+    padding: 0px 25px 10px 25px;
+    text-align: center;
+    color: #34987c;
+}
+
+h5.login{
+    margin: 0px;
+    padding: 0px 25px 10px 25px;
+    text-align: center;
+}
+
+.selectDiv{
+    margin-bottom: 25px;
+}
+
+
+
