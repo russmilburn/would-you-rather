@@ -10,11 +10,10 @@ class QuestionView extends React.Component {
   };
 
   onChange(e) {
-
-    let option = e.currentTarget.id;
-    this.setState(() => ({
-      option: option,
-    }))
+    const option = e.currentTarget.id;
+    this.setState({
+      option,
+    })
   }
 
 
