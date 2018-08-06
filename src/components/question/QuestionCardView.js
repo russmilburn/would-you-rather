@@ -17,8 +17,18 @@ class QuestionCardView extends React.Component {
   }
 
   state = {
-    cardState: QUESTION_STATE
+    cardState: QUESTION_STATE,
+    displayResult: false,
   };
+
+  componentWillMount(){
+    const {userVotes, currentUser} = this.props;
+    if (userVotes.indexOf(currentUser) > -1){
+      this.changeToResultView();
+    }else{
+      this.changeToQuestionView();
+    }
+  }
 
 
   changeView(viewState){
@@ -61,14 +71,17 @@ class QuestionCardView extends React.Component {
       </div>
     )
   }
-
 }
 
 function mapStateToProps({questions, users, currentUser}, props) {
   const {question_id} = props.match.params;
+  let userVotes = questions[question_id].optionOne.votes.concat(questions[question_id].optionTwo.votes);
+  
   return {
     user: users[questions[question_id].author],
     question_id,
+    userVotes,
+    currentUser
   }
 }
 
