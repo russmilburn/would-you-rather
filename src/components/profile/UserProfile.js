@@ -6,25 +6,19 @@ import {Link} from 'react-router-dom'
 import './profileStyle.css';
 
 
-class UserProfile extends React.Component{
+const UserProfile = ({logout, user: {name, avatarURL}}) => (
+  (
+    <div className='profileContainer'>
+      <p className='profileTitle'>Hello {name}</p>
+      <img src={avatarURL} height={20} width={20} alt={name}/>
+      <Link to='/' onClick={() => logout()}><p className='nav tab'>Logout</p></Link>
+    </div>
+  )
+);
 
-  logoutUser = (e) =>{
-    e.preventDefault();
-    const {dispatch} = this.props;
-    dispatch(logout())
-  };
-
-  render(){
-    const {user} = this.props;
-    return(
-      <div className='profileContainer'>
-        <p className='profileTitle'>Hello {user.name}</p>
-        <img src={user.avatarURL} height={20} width={20} alt={user.name}/>
-        <Link to='/' onClick={this.logoutUser}><p className='nav tab'>Logout</p></Link>
-      </div>
-    )
-  }
-}
+const mapDispatchToProps = dispatch =>({
+  logout : () => dispatch(logout())
+});
 
 function mapStateToProps({currentUser, users}) {
   return {
@@ -32,4 +26,4 @@ function mapStateToProps({currentUser, users}) {
   }
 }
 
-export default connect(mapStateToProps)(UserProfile);
+export default connect(mapStateToProps, mapDispatchToProps)(UserProfile);
