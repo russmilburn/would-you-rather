@@ -2,12 +2,13 @@ import {GET_ALL_QUESTIONS, ANSWER_QUESTION, ADD_QUESTION} from "../actions/actio
 
 export function questions(state = {}, action) {
   switch (action.type) {
-    case GET_ALL_QUESTIONS:
+    case GET_ALL_QUESTIONS: {
       return {
         ...state,
         ...action.questions,
       };
-    case ANSWER_QUESTION:
+    }
+    case ANSWER_QUESTION: {
       let question_id = action.question_id;
       let answer = action.answer;
       return {
@@ -20,11 +21,13 @@ export function questions(state = {}, action) {
           }
         }
       };
-    case ADD_QUESTION:
+    }
+    case ADD_QUESTION: {
       return {
         ...state,
         [action.question.id]: action.question,
       };
+    }
     default:
       return state;
   }
