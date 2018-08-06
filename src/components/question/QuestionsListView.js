@@ -23,8 +23,10 @@ class QuestionsListView extends React.Component {
     console.log('render');
     const {unanswered, answered} = this.props;
     const {displayUnanswered} = this.state;
-    const qList = displayUnanswered ? unanswered : answered;
-
+    const list = displayUnanswered ? unanswered : answered;
+    const qList = list.sort((a, b) => {
+      return b.question.timestamp - a.question.timestamp;
+    });
     return (
       <div>
         <button id='unanswered'
