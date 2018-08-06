@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from "prop-types";
 
-const ResultOptionView = ({votes, total, option, isSelected, percent} ) => {
+const ResultOptionView = ({ questionStats: {votes, total, option, isSelected, percent}} ) => {
   let cssTag = 'questionOption';
   if (isSelected){
     cssTag = 'questionOptionSelected badge'
@@ -21,11 +21,7 @@ const ResultOptionView = ({votes, total, option, isSelected, percent} ) => {
 };
 
 ResultOptionView.propTypes = {
-  votes: PropTypes.number.isRequired,
-  total: PropTypes.number.isRequired,
-  percent: PropTypes.number.isRequired,
-  option: PropTypes.string.isRequired,
-  isSelected: PropTypes.bool.isRequired
+  questionStats: PropTypes.object.isRequired
 };
 
 export default ResultOptionView;
