@@ -1,4 +1,5 @@
 import {GET_ALL_USERS, LOGOUT, SET_CURRENT_USER, UPDATE_USER_QUESTIONS} from "../actions/actionTypes";
+import {ANSWER_QUESTION} from "../actions/actionTypes";
 
 export function users(state = {}, action) {
   switch (action.type) {
@@ -15,6 +16,20 @@ export function users(state = {}, action) {
         [user]: {
           ...state[user],
           questions: state[user].questions.concat([id]),
+        }
+      };
+    }
+    case ANSWER_QUESTION: {
+      let user = action.authedUser;
+      let id = action.question_id;
+      return {
+        ...state,
+        [user]: {
+          ...state[user],
+          answers:{
+            ...state[user].answers,
+            [id]:action.answer,
+          }
         }
       };
     }

@@ -8,14 +8,12 @@ class LeaderBoardView extends React.Component {
     return (
       <div>
         {users.map((item) => {
-          const numAnswered = Object.keys(item.answers).length;
-          const numQuestions = item.questions.length;
-          const total = numAnswered + numQuestions;
           return (
-            <ScoreCardView user={item}
-                           numQuestions={numQuestions}
-                           numAnswered={numAnswered}
-                           total={total}/>
+            <ScoreCardView user={item.user}
+                           key={item.user.id}
+                           numQuestions={item.numQuestions}
+                           numAnswered={item.numAnswered}
+                           total={item.total}/>
           )
         })
         }
@@ -27,9 +25,23 @@ class LeaderBoardView extends React.Component {
 
 
 function mapStateToProps({users}) {
+
+  let list = Object.keys(users).map((key) => {
+    const user = users[key];
+    const numAnswered = Object.keys(user.answers).length;
+    const numQuestions = user.questions.length;
+    const total = numAnswered + numQuestions;
+    return {
+      user,
+      numQuestions,
+      numAnswered,
+      total,
+    }
+  });
+
   return {
-    users: Object.keys(users).map((key) => {
-      return users[key];
+    users: list.sort((a,b) => {
+      return b.total - a.total
     })
   }
 }

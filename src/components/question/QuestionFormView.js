@@ -13,12 +13,11 @@ class QuestionFormView extends React.Component {
   };
 
   async validateInput(e) {
-    await this.onChange(e)
+    await this.onChange(e);
     this.isDisabled()
   }
 
   onChange = (e) => {
-    console.log('onChange');
     e.preventDefault();
     const {value, id} = e.target;
     this.setState({
@@ -42,14 +41,12 @@ class QuestionFormView extends React.Component {
   };
 
   isDisabled() {
-    console.log(this.state);
     const {optionOne, optionTwo} = this.state;
     if (optionOne !== '' && optionTwo !== '') {
       this.setState({
         isDisabled: false,
       });
     }
-    console.log(this.state)
   }
 
 
