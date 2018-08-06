@@ -12,16 +12,18 @@ class QuestionFormView extends React.Component {
     toHome: false,
   };
 
+  async validateInput(e) {
+    await this.onChange(e)
+    this.isDisabled()
+  }
 
   onChange = (e) => {
+    console.log('onChange');
     e.preventDefault();
-    const text = e.target.value;
-    const id = e.target.id;
-    this.setState(() => ({
-      [id]: text,
-    }));
-
-    this.isDisabled();
+    const {value, id} = e.target;
+    this.setState({
+      [id]: value,
+    });
   };
 
   handleSubmit = (e) => {
@@ -31,27 +33,29 @@ class QuestionFormView extends React.Component {
 
     dispatch(handleAddQuestion(optionOne, optionTwo));
 
-    this.setState((currentState) => ({
+    this.setState({
       optionOne: '',
       optionTwo: '',
       isDisabled: true,
       toHome: true,
-    }));
+    });
   };
 
   isDisabled() {
+    console.log(this.state);
     const {optionOne, optionTwo} = this.state;
     if (optionOne !== '' && optionTwo !== '') {
-      this.setState(() => ({
+      this.setState({
         isDisabled: false,
-      }))
+      });
     }
+    console.log(this.state)
   }
 
 
   render() {
     const {isDisabled, toHome} = this.state;
-    if (toHome === true) {
+    if (toHome) {
       return <Redirect to='/'/>
     }
     return (
@@ -65,20 +69,25 @@ class QuestionFormView extends React.Component {
 
           <h4 className='wouldYouRather'>Would you rather...</h4>
 
-          <input className='addQuestion' id='optionOne' type='text' placeholder='Enter option one here' onChange={(e) => {
-            this.onChange(e)
-          }}/>
+          <form onSubmit={this.handleSubmit}>
 
-          <h4 className='qForm'>OR</h4>
+            <input className='addQuestion' id='optionOne' type='text' placeholder='Enter option one here'
+                   onChange={(e) => {
+                     this.validateInput(e)
+                   }}/>
 
-          <input className='addQuestion' id='optionTwo' type='text' placeholder='Enter option two here' onChange={(e) => {
-            this.onChange(e)
-          }}/>
+            <h4 className='qForm'>OR</h4>
 
-          <button className='viewPollBtn'
-                  disabled={isDisabled}
-                  onClick={this.handleSubmit}>Submit
-          </button>
+            <input className='addQuestion' id='optionTwo' type='text' placeholder='Enter option two here'
+                   onChange={(e) => {
+                     this.validateInput(e)
+                   }}/>
+
+            <button className='viewPollBtn'
+                    disabled={isDisabled}
+                    type='submit'>Submit
+            </button>
+          </form>
         </div>
       </div>
     )
