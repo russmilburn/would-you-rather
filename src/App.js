@@ -15,7 +15,24 @@ import QuestionCardView from './components/question/QuestionCardView';
 
 import {handleInitialData} from "./actions/appInit";
 
+const LoggedIn = () => {
+  return (
+    <div>
+      <NavigationView/>
+      <div className='App-content'>
+        <Route exact path='/' component={QuestionsListView}/>
+        <Route exact path='/add' component={QuestionFormView}/>
+        <Route exact path='/question/:question_id' component={QuestionCardView}/>
+        <Route exact path='/leaderboard' component={LeaderBoardView}/>
+      </div>
+    </div>
+  )
+};
+
+
 class App extends Component {
+
+
 
   componentDidMount() {
     this.props.dispatch(handleInitialData());
@@ -29,15 +46,7 @@ class App extends Component {
           <div>
             {this.props.currentUser === true
               ? <LoginView/>
-              : <div>
-                <NavigationView/>
-                <div className='App-content'>
-                  <Route exact path='/' component={QuestionsListView}/>
-                  <Route exact path='/add' component={QuestionFormView}/>
-                  <Route exact path='/question/:question_id' component={QuestionCardView}/>
-                  <Route exact path='/leaderboard' component={LeaderBoardView}/>
-                </div>
-              </div>
+              : <LoggedIn/>
             }
           </div>
         </Fragment>
