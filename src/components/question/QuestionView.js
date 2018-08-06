@@ -35,6 +35,8 @@ class QuestionView extends React.Component {
     const {question} = this.props;
     const {option} = this.state;
 
+
+
     return (
       <div className='questionColumn'>
         <div className='question'>

@@ -47,8 +47,12 @@ class QuestionCardView extends React.Component {
 
 
   render() {
-    const {question_id, user} = this.props;
+    const {question_id, user, question} = this.props;
     const {cardState} = this.state;
+
+    if (question === null) {
+      return <img src='/assets/images/deadlink.jpg' width='200' height='200' />
+    }
 
     return (
       <div>
@@ -75,11 +79,25 @@ class QuestionCardView extends React.Component {
 
 function mapStateToProps({questions, users, currentUser}, props) {
   const {question_id} = props.match.params;
-  let userVotes = questions[question_id].optionOne.votes.concat(questions[question_id].optionTwo.votes);
-  
+
+  if (typeof(questions[question_id]) === 'undefined'){
+    return {
+      question_id,
+      user: null,
+      userVotes: [],
+      question: null,
+    }
+  }
+
+  const q = questions[question_id];
+  const question = q ? questions[question_id] : null;
+  const userVotes = questions[question_id].optionOne.votes.concat(questions[question_id].optionTwo.votes);
+
+
   return {
     user: users[questions[question_id].author],
     question_id,
+    question,
     userVotes,
     currentUser
   }
