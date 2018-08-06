@@ -1,7 +1,4 @@
-export const SET_CURRENT_USER = 'SET_CURRENT_USER';
-export const GET_ALL_USERS = 'GET_ALL_USERS';
-export const UPDATE_USER_QUESTIONS = 'UPDATE_USER_QUESTIONS';
-export const LOGOUT = 'LOGOUT';
+import {GET_ALL_USERS, UPDATE_USER_QUESTIONS, SET_CURRENT_USER, LOGOUT} from "./actionTypes";
 
 
 export function setCurrentUser(id) {

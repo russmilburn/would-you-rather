@@ -1,4 +1,4 @@
-import {GET_ALL_USERS, LOGOUT, SET_CURRENT_USER, UPDATE_USER_QUESTIONS} from "../actions/users";
+import {GET_ALL_USERS, LOGOUT, SET_CURRENT_USER, UPDATE_USER_QUESTIONS} from "../actions/actionTypes";
 
 export function users(state = {}, action) {
   switch (action.type) {

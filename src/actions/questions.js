@@ -2,10 +2,7 @@ import {saveQuestionAnswer, saveQuestion} from "../utils/api";
 import { showLoading, hideLoading } from 'react-redux-loading'
 import {updateUsersQuestions} from "./users";
 
-export const GET_ALL_QUESTIONS = 'GET_ALL_QUESTIONS';
-export const ANSWER_QUESTION = 'ANSWER_QUESTION';
-export const ADD_QUESTION = 'ADD_QUESTION';
-
+import {GET_ALL_QUESTIONS, ANSWER_QUESTION, ADD_QUESTION} from "./actionTypes";
 
 
 export function getAllQuestions(questions) {

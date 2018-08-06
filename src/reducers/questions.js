@@ -1,4 +1,4 @@
-import {GET_ALL_QUESTIONS, ANSWER_QUESTION, ADD_QUESTION} from "../actions/questions";
+import {GET_ALL_QUESTIONS, ANSWER_QUESTION, ADD_QUESTION} from "../actions/actionTypes";
 
 export function questions(state = {}, action) {
   switch (action.type) {
