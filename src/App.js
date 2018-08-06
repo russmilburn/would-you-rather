@@ -30,12 +30,11 @@ const LoggedIn = () => {
 };
 
 
+
 class App extends Component {
 
-
-
   componentDidMount() {
-    this.props.dispatch(handleInitialData());
+    this.props.getData();
   }
 
   render() {
@@ -55,10 +54,14 @@ class App extends Component {
   }
 }
 
+const mapDispatchToProps = dispatch => ({
+  getData: () => dispatch(handleInitialData())
+});
+
 function mapStateToProps({currentUser}) {
   return {
     currentUser: currentUser === null
   }
 }
 
-export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);
